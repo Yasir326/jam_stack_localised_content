@@ -1,11 +1,10 @@
 function success(pos) {
-
   const url = `/.netlify/functions/weatherapi?lat=${pos.coords.latitude}&lon=${pos.coords.longitude}&units=metric`;
   fetch(url)
-    .then(response => {
+    .then((response) => {
       return response.json();
     })
-    .then(data => {
+    .then((data) => {
       document.querySelector("#city").textContent = data.name;
       document.querySelector("#temp").textContent = data.main.temp + "°C";
       document.querySelector("#main").textContent = data.weather[0].main;
@@ -13,7 +12,7 @@ function success(pos) {
 
       document.querySelector("#weather").classList.remove("hidden");
       console.log("data : ", data);
-    })
+    });
 }
 
 function error(err) {
